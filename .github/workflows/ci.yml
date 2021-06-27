@@ -2,9 +2,9 @@ name: Project CI
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   pull_request:
-    branches: [main]
+    branches: [master]
 
 jobs:
   setup:
@@ -38,6 +38,6 @@ jobs:
       run: docker build -f Dockerfile -t "template-test:latest" -t "template-test:${{ needs.setup.outputs.sha_short }}" .
     # Make test repo
     - name: Deploy test repo
-      if: github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/master'
       run: docker run -it -v "$GITHUB_WORKSPACE:/app" "template-test:latest"
     
