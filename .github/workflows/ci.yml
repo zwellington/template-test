@@ -9,15 +9,15 @@ on:
 jobs:
   setup:
     name: setup
-      runs-on: ubuntu-latest
-      outputs:
-        sha_short: ${{ steps.sha.outputs.sha_short }}
-      steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: generate short commit hash
-        id: sha
-        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+    runs-on: ubuntu-latest
+    outputs:
+      sha_short: ${{ steps.sha.outputs.sha_short }}
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: generate short commit hash
+      id: sha
+      run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
 
   python:
     name: "Python library"
@@ -36,8 +36,6 @@ jobs:
     - name: "Build docker image (doculist)"
       #working-directory: ./
       run: docker build -f Dockerfile -t "template-test:latest" -t "template-test:${{ needs.setup.outputs.sha_short }}" .
-    # Make test repo
-    - name: Deploy test repo
-      if: github.ref == 'refs/heads/master'
-      run: docker run -it -v "$GITHUB_WORKSPACE:/app" "template-test:latest"
-    
+    # Deploy test repo
+    - name: "Deploy test repo"
+      run: docker run -i -v "$GITHUB_WORKSPACE:/app" "template-test:latest"
