@@ -39,3 +39,5 @@ jobs:
     # Deploy test repo
     - name: "Deploy test repo"
       run: docker run -i -v "$GITHUB_WORKSPACE:/app" "template-test:latest"
+      with:
+        package_name: test
