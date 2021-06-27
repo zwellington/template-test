@@ -38,6 +38,4 @@ jobs:
       run: docker build -f Dockerfile -t "template-test:latest" -t "template-test:${{ needs.setup.outputs.sha_short }}" .
     # Deploy test repo
     - name: "Deploy test repo"
-      run: docker run -i -v "$GITHUB_WORKSPACE:/app" "template-test:latest"
-      with:
-        package_name: test
+      run: docker run -i -v "$GITHUB_WORKSPACE:/app" "template-test:latest" --no-input
