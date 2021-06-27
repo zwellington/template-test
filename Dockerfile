@@ -9,4 +9,4 @@ RUN pip install -U \
     pip \
     cookiecutter==1.7.3
 
-CMD ["cookiecutter", "https://github.com/zwellington/template-test"]
+CMD ["cookiecutter", "--no-input", "https://github.com/zwellington/template-test"]
