@@ -1,5 +1,7 @@
 # template-test
 
-```html
-<span style="color:blue">some *blue* text</span>
+```diff
+- bad answer
++ good answer
+neutral answer
 ```
