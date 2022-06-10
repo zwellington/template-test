@@ -19,10 +19,12 @@ Response
 </td>
 
 <td>
+ 
 ```diff
  - bad
  + good
 ```
+ 
 </td>
 
 </tr>
