@@ -29,3 +29,11 @@ Response
 
 </tr>
 </table>
+
+
+## Query 1
+
+| k-retriever | Set 1 | Set 2 | Set 3 | Set 4 |
+| ----------- | ----- | ----- | ----- | ----- |
+| 1           | answers | answers | answers | answers |
+| 3           | answers | answers | answers | answers |
