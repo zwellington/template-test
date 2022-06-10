@@ -1,3 +1,3 @@
 # template-test
 
-```- bad example```
+```diff - bad example```
