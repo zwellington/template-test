@@ -21,8 +21,8 @@ Response
 <td>
  
 ```diff
- - bad
- + good
+-bad
++good
 ```
  
 </td>
